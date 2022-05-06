@@ -7,10 +7,17 @@ from src import enemy
 
 class Controller:
     def __init__(self, width=640, height=480):
+        """the constructor for the Controller class that takes width and height and stores them as instance variables
+      self:(str)  represent an instance (object) of the given class
+      width: (int) width of the screen
+      height: (int) height of the screen
+      return: None
+      """
         pygame.init()
         self.width = width
         self.height = height
         self.screen = pygame.display.set_mode((self.width, self.height))
+      
         self.background = pygame.Surface(self.screen.get_size()).convert()
         self.background.fill((250, 250, 250))  # set the background to white
         pygame.font.init()  # you have to call this at the start, if you want to use this module.
@@ -28,6 +35,9 @@ class Controller:
         self.state = "GAME"
 
     def mainLoop(self):
+        """function that updates the game state and draws the game state to the screen using the function gameLoop  
+      self: (str)  represent an instance (object) of the given class
+      return: None"""
         while True:
             if(self.state == "GAME"):
                 self.gameLoop()
@@ -35,6 +45,9 @@ class Controller:
                 self.gameOver()
 
     def gameLoop(self):
+        """ function that handles events, updates game state, and draws the game state to the screen 
+     self: (str)  represent an instance (object) of the given class
+      return: None"""
         while self.state == "GAME":
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -48,7 +61,8 @@ class Controller:
                         self.hero.move_left()
                     elif(event.key == pygame.K_RIGHT):
                         self.hero.move_right()
-
+            self.hero.update()
+          
             # check for collisions
             fights = pygame.sprite.spritecollide(self.hero, self.enemies, True)
             if(fights):
@@ -71,6 +85,9 @@ class Controller:
             pygame.display.flip()
 
     def gameOver(self):
+        """function  that is enacted when the player loses the game causing there to be a change in the screen color and and prevents the player from continuing the game once they have lost. Handles events associated with losing the game
+      self: (str)  represent an instance (object) of the given class
+      return: None"""
         self.hero.kill()
         myfont = pygame.font.SysFont(None, 30)
         message = myfont.render('Game Over', False, (0, 0, 0))

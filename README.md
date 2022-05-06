@@ -8,20 +8,21 @@
 Replace anything surrounded by the `< >` symbols._
 
 ## SUMMARY:
- < Provide a short description of your program's functionality. No more than a couple sentences. >
+ I completed part A in which my code moves the enemies on the screen by a rnadom value: -1,0, or 1. The enemies can kill the player or be killed by the player. For part B, I implemented a method that does not allow the hero to move off screen. 
+ 
 #### Unique Feature
- < Describe the unique feature you added >
+ My feature is that the hero does not move off screen when the player moves him. I made an update function in the hero class where it accounted for size of the screen, so taking the height and width of the screen, the player cannot move the hero further than those parameters. 
 
 ## GRACE DAYS
-Grace days used for this assignment: < # >
+Grace days used for this assignment: 4
 
-Grace days remaining: < # >/5
+Grace days remaining: 1/5
 
 ## KNOWN BUGS AND INCOMPLETE PARTS:
- < What parts of the project you were not able to complete >
+none
 
 ## REFERENCES:
- < List any outside resources used >
+ none
 
 ## MISCELLANEOUS COMMENTS:
- < Anything you would like the grader to know >
+ none
