@@ -62,15 +62,7 @@ class Hero(pygame.sprite.Sprite):
             print("successful attack")
         return True
 
-    # Keep player on the screen
-        if self.rect.x < 0:
-          self.rect.left = 0
-        if self.rect.right > screen_width:
-          self.rect.right = screen_width
-        if self.rect.top <= 0:
-          self.rect.top = 0
-        if self.rect.bottom >= screen_height:
-          self.rect.bottom = screen_height
+
      
     def update(self,width=640, height=480):
         """function that makes sure the hero does not           move off the screen
